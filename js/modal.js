@@ -9,7 +9,7 @@ console.log('Modal');
   "Dox-Stop is a website to look up the private information of a individual inspire by a scene from the Netflix miniseries 'Maniac'."
   let moduleContentExtra = "DISCLAIMER: THE RESULTS AND FUNTIONS OF THIS WEBSITE ARE NOT REAL. Doxxing is a EXTREME violation of privacy and should not be done.";
 
-  let modal = document.getElementById('modal');
+  let self = document.getElementById('modal');
 
   //fill/background
   let fill = document.createElement('div');
@@ -56,7 +56,7 @@ console.log('Modal');
   fill.addEventListener('click',(c)=>{
     if(c.target !== fill)return;
     document.body.removeChild(fill);
-    document.body.removeChild(modal);
+    document.body.removeChild(self);
   })
 })()
 

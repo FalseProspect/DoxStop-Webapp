@@ -4,6 +4,18 @@ let pre = document.getElementById('asciiTitle');
 let resultDisplay = document.getElementById('resultDisplay');
 let artDisplay = document.getElementById('artDisplay');
 
+
+// (function doxxed(){
+//   let script1 = document.createElement('script');
+//   script1.setAttribute('src','js/doxxed.js');
+//   document.body.appendChild(script1);
+//   let script2 = document.createElement('script');
+//   script2.setAttribute('src','js/asciiTitle.js');
+//   document.body.appendChild(script2);
+// })();
+
+document.getElementById('asciiArt').innerHTML=asciiArt[2];
+
 function doxstopTitleGen(){
   pre.innerHTML = asciiTitle[Math.floor(Math.random()*asciiTitle.length)];
 };

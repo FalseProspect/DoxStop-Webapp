@@ -129,7 +129,7 @@ button:focus{
 }
 
 #artDisplay{
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 input{

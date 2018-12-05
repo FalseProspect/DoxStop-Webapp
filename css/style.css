@@ -7,6 +7,9 @@ body{
   background: var(--backColor);
   color: var(--textColor);
   overflow-x: hidden;
+  font-family: monospace;
+  font-weight: 900;
+  font-size: calc(7px + .5vw);
 }
 
 header{
@@ -87,6 +90,9 @@ button{
   width: 110px;
   height: 2.2rem;
   border-radius: 5px;
+  font-family: monospace;
+  font-size: 16px;
+  /* font-weight: bold; */
 }
 
 button:focus{
@@ -104,10 +110,12 @@ button:focus{
   text-align: center;
 }
 
-pre{
+#asciiTitle,
+#asciiArt{
   position: absolute;
   width: 100vw;
   min-width: 310px;
+  font-size: calc(7px + .5vw);
   text-align: center;
   left: 0;
   right: 0;
@@ -115,8 +123,13 @@ pre{
   margin: auto auto;
 }
 
-.art-container pre{
-  bottom: 10px;
+#asciiArt{
+  font-size: calc(4px + .5vw);
+  bottom: 1vh;
+}
+
+#artDisplay{
+  visibility: hidden;
 }
 
 input{
@@ -135,6 +148,7 @@ input{
   padding: 0 10px;
   font-size: 20px;
   font-weight: normal;
+  font-family: monospace;
   visibility: hidden;
 }
 
@@ -171,4 +185,98 @@ input:focus{
   100%{
       color: transparent;
   }
+}
+
+.modal-fill{
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 12, 22, .8);
+  top: 0;
+  left: 0;
+  animation: fadein .1s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-container{
+  position: relative;
+  z-index: 4;
+  width: calc(80vw - 50px);
+  min-width: 320px;
+  height: auto;
+  background: #ddd;
+  border-radius: 10px;
+  left: 0;
+  right: 0;
+  top: 25vh;
+  bottom: 0;
+  margin: auto auto;
+  color: var(--backColor);
+}
+
+.modal-container pre,
+.modal-container h1,
+.modal-container p{
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modal-container hr{
+  background: var(--backColor);
+  margin:10px;
+}
+.modal-container p:first-of-type{
+  padding: 5px 10px;
+}
+.modal-container p:last-of-type{
+  display: block;
+  height: auto;
+  padding: 0 10px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  color: red;
+}
+.modal-container pre{
+  font-size: calc(6px + .5vw);
+}
+
+.resultItem{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  animation: fadein .1s;
+}
+
+.resultItem-Container{
+  display: flex;
+  border: thin solid snow;
+  padding: 10px;
+}
+
+.resultItem-Img{
+  width: 27vw;
+  height: 27vw;
+}
+
+.resultItem-fieldContainer{
+  display: block;
+  margin-left: 10px;
+  height: auto;
+}
+
+.resultItem-field{
+  display: block;
+  max-width: 320px;
+  font-size: calc(6px + .5vw);
+  padding: 1px 0;
+  min-width: 200px;
+  text-align: left;
 }

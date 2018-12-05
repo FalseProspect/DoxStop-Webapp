@@ -119,17 +119,20 @@ button:focus{
   text-align: center;
   left: 0;
   right: 0;
-  bottom: 50px;
   margin: auto auto;
+}
+
+#asiiTitle{
+  bottom: 50px;
 }
 
 #asciiArt{
   font-size: calc(4px + .5vw);
-  bottom: 1vh;
+  /* bottom: 1vh; */
 }
 
 #artDisplay{
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 input{
@@ -261,7 +264,9 @@ input:focus{
   padding: 10px;
 }
 
-.resultItem-Img{
+.resultItem-svg svg{
+  fill: var(--textColor);
+  border: thin solid snow;
   width: 27vw;
   height: 27vw;
 }
@@ -277,6 +282,19 @@ input:focus{
   max-width: 320px;
   font-size: calc(6px + .5vw);
   padding: 1px 0;
-  min-width: 200px;
   text-align: left;
+}
+
+@media screen and (max-width: 550px){
+  .resultItem-field{
+    width: 180px;
+  }
+
+}
+
+@media screen and (min-width: 420px){
+  .resultItem-field{
+    width: 300px;
+  }
+
 }

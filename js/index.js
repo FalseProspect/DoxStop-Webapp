@@ -4,20 +4,13 @@ let pre = document.getElementById('asciiTitle');
 let resultDisplay = document.getElementById('resultDisplay');
 let artDisplay = document.getElementById('artDisplay');
 
-
-// (function doxxed(){
-//   let script1 = document.createElement('script');
-//   script1.setAttribute('src','js/doxxed.js');
-//   document.body.appendChild(script1);
-//   let script2 = document.createElement('script');
-//   script2.setAttribute('src','js/asciiTitle.js');
-//   document.body.appendChild(script2);
-// })();
-
 document.getElementById('asciiArt').innerHTML=asciiArt[2];
 
 function doxstopTitleGen(){
-  pre.innerHTML = asciiTitle[Math.floor(Math.random()*asciiTitle.length)];
+  let index = Math.floor(Math.random()*asciiTitle.length)
+  pre.innerHTML = asciiTitle[index];
+  if(index===0) pre.style.fontSize = 'calc(5px + .5vw)';
+  else pre.style.fontSize = 'calc(7px + .5vw)';
 };
 
 pre.addEventListener('click', ()=>{
@@ -133,14 +126,19 @@ function renderitem(obj){
   let itemContainer = document.createElement('div');
   itemContainer.setAttribute('class','resultItem-Container');
 
-  let itemImg = document.createElement('img');
-  itemImg.setAttribute('class','resultItem-Img');
-
+  let itemImg = document.createElement('svg');
+  itemImg.setAttribute('class','resultItem-svg');
+  
+  
   for(let prop in obj){
-    console.log(prop, obj[prop]);
     let infoField = makeItemField(prop, obj[prop]);
     itemFieldContainer.appendChild(infoField);
   }
+
+  let svgMale = '<svg iconCreditTo="https://www.flaticon.com/authors/icomoon" x="0px" y="0px" width="448px" height="448px" viewBox="0 0 448 448" style="enable-background:new 0 0 448 448;" xml:space="preserve"><g> <path d="M279.412,311.368c-11.055-1.759-11.307-32.157-11.307-32.157s32.484-32.158,39.564-75.401 c19.045,0,30.809-45.973,11.76-62.148C320.227,124.635,343.91,8,224,8c-119.911,0-96.225,116.635-95.432,133.662 c-19.047,16.175-7.285,62.148,11.761,62.148c7.079,43.243,39.564,75.401,39.564,75.401s-0.252,30.398-11.307,32.157 C132.976,317.034,0,375.686,0,440h224h224C448,375.686,315.023,317.034,279.412,311.368z"/></g></svg>';
+  let svgFemale = '<svg iconCreditTo="https://www.flaticon.com/authors/pixel-perfect" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M421.184,384.96l-81.728-20.437l-4.715-18.88c56.384-9.493,85.397-26.389,86.677-27.136c3.029-1.771,4.907-4.992,5.163-8.491c0.235-3.499-1.323-6.933-4.075-9.131C422.123,300.587,384,269.099,384,160c0-92.011-21.525-138.667-64-138.667h-6.293C298.389,6.528,286.891,0,256,0c-40.085,0-128,40.299-128,160c0,109.099-38.123,140.587-38.4,140.8c-2.837,2.133-4.437,5.525-4.267,9.067c0.192,3.563,2.112,6.763,5.163,8.597c1.28,0.768,30.016,17.749,86.741,27.221l-4.715,18.837L90.795,384.96C37.333,398.336,0,446.165,0,501.333C0,507.221,4.779,512,10.667,512h490.667c5.888,0,10.667-4.821,10.667-10.709C512,446.165,474.667,398.336,421.184,384.96z"/></g></g></svg>';
+
+  itemImg.innerHTML = obj.Gender === 'male' ? svgMale : svgFemale;
 
   itemContainer.appendChild(itemImg);
   itemContainer.appendChild(itemFieldContainer);

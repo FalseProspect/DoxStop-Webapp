@@ -6,7 +6,7 @@ console.log('Modal');
   let moduleExtra = asciiTitle[Math.floor(Math.random()*asciiTitle.length)];
   let moduleTitle = 'About';
   let moduleContent = 
-  "Dox-Stop is a website to look up the private information of a individual inspire by a scene from the Netflix miniseries 'Maniac'."
+  "Dox-Stop is a website to look up the private information of a individual inspired from a scene in the Netflix miniseries 'Maniac'."
   let moduleContentExtra = "DISCLAIMER: THE RESULTS AND FUNTIONS OF THIS WEBSITE ARE NOT REAL. Doxxing is a EXTREME violation of privacy and should not be done.";
 
   let self = document.getElementById('modal');

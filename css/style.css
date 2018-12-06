@@ -3,6 +3,17 @@
   --backColor: #000C16;
 }
 
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; }
+  95% { opacity: 0; }
+  100%   { opacity: 1; }
+}
+
 body{
   background: var(--backColor);
   color: var(--textColor);
@@ -17,6 +28,7 @@ header{
   height: 50px;
   padding:22px 10px;  
   width: 100%;
+  animation: popIn 1.2s;
 }
 
 ul li{
@@ -29,6 +41,7 @@ a,
 a:active{
   color: var(--textColor);
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover{
@@ -45,18 +58,23 @@ a:hover{
   right: 20px;
 }
 
-.container{
-  position: relative;
-}
-
 .title-container{
   height: 20vh;
   margin: 0 5px;
   margin-top: 20px;
+  animation: fadein 1s;
 }
 
-.input-container{
-  height: 5vh;
+.title-container svg{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 10vh;
+  width: 45vw;
+  max-width: 500px;
+  min-width: 300px;
+  fill: var(--textColor);
 }
 
 .buttons-container{
@@ -85,20 +103,22 @@ a:hover{
 }
 
 button{
-  background: var(--textColor);
-  color: var(--backColor);
+  background: transparent;
+  color: var(--textColor);
   width: 110px;
   height: 2.2rem;
-  border-radius: 5px;
+  border: thin solid var(--textColor);
+  border-radius: 1px;
   font-family: monospace;
   font-size: 16px;
+  cursor: pointer;
+  animation: popIn 1.2s;
   /* font-weight: bold; */
 }
 
 button:focus{
   outline: none;
 }
-
 
 .art-container{
   height: 40vh;
@@ -110,29 +130,23 @@ button:focus{
   text-align: center;
 }
 
-#asciiTitle,
 #asciiArt{
   position: absolute;
   width: 100vw;
   min-width: 310px;
-  font-size: calc(7px + .5vw);
+  font-size: calc(4px + .5vw);
   text-align: center;
   left: 0;
   right: 0;
   margin: auto auto;
 }
 
-#asiiTitle{
-  bottom: 50px;
-}
-
-#asciiArt{
-  font-size: calc(4px + .5vw);
-  /* bottom: 1vh; */
-}
-
 #artDisplay{
   visibility: hidden;
+}
+
+.input-container{
+  height: 5vh;
 }
 
 input{
@@ -143,7 +157,7 @@ input{
   box-shadow: 0 2px 2px 0 rgba(1,22,39,0.16), 0 0 0 1px rgba(1,22,39,0.08);
   width: 45vw;
   height: 2.2rem;
-  border-radius: 5px;
+  border-radius: 1px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -155,6 +169,10 @@ input{
   visibility: hidden;
 }
 
+input:focus{
+  outline: none;
+}
+
 #fakeInput{
   position: absolute;
   background: rgba(255,255,255, .85);
@@ -163,19 +181,15 @@ input{
   box-shadow: 0 2px 2px 0 rgba(1,22,39,0.16), 0 0 0 1px rgba(1,22,39,0.08);
   width: 45vw;
   height: 2.2rem;
-  border-radius: 5px;
+  border-radius: 1px;
   left: 0;
   right: 0;
   margin: 0 auto;
   min-width: 310px;
   padding: 5px 9.5px;
   font-size: 20px;
-  animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite, popIn 1.5s;
   cursor: text;
-}
-
-input:focus{
-  outline: none;
 }
 
 @keyframes blink {
@@ -201,16 +215,11 @@ input:focus{
   animation: fadein .1s;
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 .modal-container{
   position: relative;
   z-index: 4;
   width: calc(80vw - 50px);
-  min-width: 320px;
+  min-width: 310px;
   height: auto;
   background: #ddd;
   border-radius: 10px;
@@ -246,8 +255,13 @@ input:focus{
   font-weight: bold;
   color: red;
 }
-.modal-container pre{
-  font-size: calc(6px + .5vw);
+
+.modal-container pre svg{
+  padding-top: 10px;
+  width: 45vw;
+  max-width: 500px;
+  min-width: 300px;
+  fill: var(--backColor);
 }
 
 .resultItem{
@@ -279,7 +293,7 @@ input:focus{
 
 .resultItem-field{
   display: block;
-  max-width: 320px;
+  max-width: 340px;
   font-size: calc(6px + .5vw);
   padding: 1px 0;
   text-align: left;
@@ -289,12 +303,10 @@ input:focus{
   .resultItem-field{
     width: 180px;
   }
-
 }
 
 @media screen and (min-width: 420px){
   .resultItem-field{
-    width: 300px;
+    width: 290px;
   }
-
 }

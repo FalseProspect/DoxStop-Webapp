@@ -19,10 +19,9 @@ console.log('Modal');
   let container = document.createElement('div');
   container.setAttribute('class','modal-container');
   
-  //Ascii Art
+  //Doxstop
   let pre = document.createElement('pre');
-  let preContent = document.createTextNode(moduleExtra);
-  pre.appendChild(preContent);
+  pre.innerHTML= logo;
 
   //Title
   let h1 = document.createElement('h1');

@@ -55,7 +55,33 @@ a:hover{
 
 .user{
   position: absolute;
+  text-align: right;
+  max-width: 150px;
   right: 20px;
+}
+
+#doxstopLogo svg{
+  z-index: 2;
+}
+
+#historyList{
+  padding: 5px;
+  margin-top: 10px;
+  text-align: left;
+  visibility: hidden;
+  color: var(--backColor);
+  border: thin solid var(--textColor);
+  background: var(--textColor);
+  z-index: 10;
+  overflow-x: auto;
+}
+#historyList li{
+  display: block;
+  cursor: pointer;
+}
+
+#historyList li:hover{
+  text-decoration: underline;
 }
 
 .title-container{
@@ -302,6 +328,9 @@ input:focus{
 @media screen and (max-width: 550px){
   .resultItem-field{
     width: 180px;
+  }
+  #historyList{
+    max-height: 30px;
   }
 }
 
